@@ -7,7 +7,7 @@ const progress = useProgress()
 <template>
   <div class="flex items-center justify-center text-center mt-10">
     <svg-circle>
-      <h1 class="text-3xl font-bold size-full flex items-center justify-center">
+      <h1 class="text-2xl font-bold size-full flex items-center justify-center">
         {{ progress }}%
       </h1>
     </svg-circle>

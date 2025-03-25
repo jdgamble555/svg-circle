@@ -2,26 +2,31 @@
 
 const progress = useProgress()
 
-const cir = 150
-const width = 8
-const trailColor = 'gray'
-const strokeColor = 'black'
+const {
+    size = 150,
+    width = 20,
+    trailColor = 'gray',
+    strokeColor = 'black'
+} = defineProps<{
+    size?: number;
+    width?: number;
+    trailColor?: string;
+    strokeColor?: string;
+}>()
 
-const halfCir = cir / 2
-const radius = halfCir - width / 2
-const circumference = 2 * Math.PI * radius
+const cy = size / 2
+const r = cy - width / 2
+const circumference = 2 * Math.PI * r
 
-const dashOffset = computed(() => circumference * (1 - progress / 100))
+const dashOffset = computed(() => circumference * (1 - progress.value / 100))
 </script>
 
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" :width="cir" :height="cir">
-        <circle :cx="halfCir" :cy="halfCir" :r="radius" :stroke="trailColor" fill="none" :stroke-width="width" />
-        <circle :cx="halfCir" :cy="halfCir" :r="radius" fill="none" :stroke="strokeColor"
-            :transform="`rotate(-90 ${halfCir} ${halfCir})`" :stroke-dasharray="circumference"
-            :stroke-dashoffset="dashOffset" :stroke-width="width" />
-        <foreignObject :x="width / 2" :y="width / 2 - 4" :width="cir - width" :height="cir - width"
-            class="size-full flex justify-center items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" :width="size" :height="size">
+        <circle :cx="cy" :cy :r :stroke="trailColor" fill="none" :stroke-width="width" />
+        <circle :cx="cy" :cy :r fill="none" :stroke="strokeColor" :transform="`rotate(-90 ${cy} ${cy})`"
+            :stroke-dasharray="circumference" :stroke-dashoffset="dashOffset" :stroke-width="width" />
+        <foreignObject :x="0" :y="0" :width="size" :height="size" class="size-full flex justify-center items-center">
             <slot />
         </foreignObject>
     </svg>
