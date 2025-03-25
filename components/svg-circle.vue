@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const { progress = 55 } = defineProps<{ progress?: number | null }>()
+const progress = useProgress()
 
 const cir = 150
 const width = 8
