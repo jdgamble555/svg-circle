@@ -11,7 +11,7 @@ const changePercent = () => {
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center mt-20 gap-5">
+    <div class="flex flex-col items-center justify-center my-10 gap-5">
         <h1 class="font-bold">Lingo</h1>
         <div class="mx-50">
             <svg-circle :progress trail-color='#e5e7eb' stroke-color='#4ade80' :size="100" :width="10">
