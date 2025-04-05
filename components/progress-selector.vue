@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const progress = useProgress();
+const progress = useProgress()
 </script>
 
 <template>
