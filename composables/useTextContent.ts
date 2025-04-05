@@ -1,3 +1,3 @@
 export const useTextContent = () => {
-    return useState('text-content', () => 90);
-};
+    return useState('text-content', () => 90)
+}
